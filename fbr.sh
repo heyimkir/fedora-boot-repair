@@ -1,6 +1,6 @@
 # fedora boot repair menu
 echo Welcome to FBR!
-echo FBR Version: v1.2-unstable
+echo FBR Version: v1.2
 echo Disclaimer: if you are running on a Live USB, CHROOT INTO YOUR HARD DRIVE FIRST
 PS3='Please enter your choice:'
 options=("Repair GRUB" "Reinstall GRUB UEFI" "Reinstall GRUB MBR" "Advanced Config" "Quit")
