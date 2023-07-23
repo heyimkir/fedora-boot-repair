@@ -1,9 +1,9 @@
 # fedora boot repair menu
 echo Welcome to FBR!
-echo FBR Version: v1.1
+echo FBR Version: v1.2-unstable
 echo Disclaimer: if you are running on a Live USB, CHROOT INTO YOUR HARD DRIVE FIRST
 PS3='Please enter your choice:'
-options=("Repair GRUB" "Reinstall GRUB UEFI" "Reinstall GRUB MBR" "Quit")
+options=("Repair GRUB" "Reinstall GRUB UEFI" "Reinstall GRUB MBR" "Advanced Config" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -32,7 +32,14 @@ do
         	sudo grub2-install $devnode
         	clear
         	;;
-        	
+	 
+        "Advanced Config") 
+		echo You will be loaded into a GUI to customize the GRUB bootloader.
+  		read -p "Press enter to continue"
+    		pkexec dnf install grub-customizer
+      		pkexec grub-customizer
+		clear
+  		;;
         "Quit")
             
 	    echo "Leaving FBR..."
